@@ -1,2 +1,2 @@
 # AI For SEA
-# "Safety track" track
+# "Safety" track
