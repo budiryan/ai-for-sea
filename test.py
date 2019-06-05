@@ -2,20 +2,14 @@ import pandas as pd
 import glob
 
 from features.features import RideSafetyFeaturesAggregator
+from dataloader.dataloader import load_ride_safety_data
 
 DATA_PATH = 'data/safety/safety'
 
 if __name__ == '__main__':
-    features_path = '{}/features'.format(DATA_PATH)
-    features = pd.DataFrame()
-    for f in glob.glob('{}/*.csv'.format(features_path)):
-        temp = pd.read_csv(f)
-        print('loaded feature: ', f)
-        features = pd.concat([features, temp], axis=0)
-        break
-    features = features.sort_values(by=['bookingID', 'second'])
-    print(features.shape)
-    features = features.iloc[:1000]
+    DATA_PATH = 'data/safety/safety'
+
+    features, labels = load_ride_safety_data('{}/features'.format(DATA_PATH), '{}/labels'.format(DATA_PATH))
 
     feat = RideSafetyFeaturesAggregator(features)
     features_agg = feat.get_aggregated_features()
