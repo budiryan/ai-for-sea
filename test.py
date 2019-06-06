@@ -1,6 +1,3 @@
-import pandas as pd
-import glob
-
 from features.features import RideSafetyFeaturesAggregator
 from dataloader.dataloader import load_ride_safety_data
 
