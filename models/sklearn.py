@@ -1,3 +1,6 @@
+from joblib import dump, load
+
+
 class SklearnWrapper(object):
     def __init__(self, clf, seed=0, params=None):
         params['random_state'] = seed
@@ -8,3 +11,9 @@ class SklearnWrapper(object):
 
     def predict(self, x):
         return self.clf.predict(x)
+
+    def save(self, filepath):
+        dump(self.clf, filepath)  # path + filename
+
+    def load(self, filepath):
+        self.clf = load(filepath)
