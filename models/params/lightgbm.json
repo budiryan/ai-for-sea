@@ -1,0 +1,15 @@
+{
+    "task": "train",
+    "boosting_type": "gbdt",
+    "objective": "regression",
+    "metric": "rmse",
+    "nrounds": 50000,
+    "early_stop_rounds": 2000,
+    "max_depth": 4,
+    "num_leaves": 46,
+    "feature_fraction": 0.6,
+    "bagging_fraction": 0.9,
+    "bagging_freq": 8,
+    "learning_rate": 0.019,
+    "verbose": 0
+}
