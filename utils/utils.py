@@ -23,6 +23,8 @@ def timer(task_name="timer"):
 
 def json_to_dict(filepath):
     """
+    Converts a json object stored in a file to python dictionary
+
     Parameters
     ----------
     filepath str
@@ -37,7 +39,7 @@ def json_to_dict(filepath):
 
 
 def find_best_threshold_naive(labels, predictions):
-    """ Finds best binary threshold for set of predictions given the labels in AUC metric
+    """ Finds best binary threshold for set of predictions given the labels in AUC metric (naive)
     Parameters
     ----------
     labels numpy.array

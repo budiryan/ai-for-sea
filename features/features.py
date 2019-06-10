@@ -3,10 +3,29 @@ import numpy as np
 
 
 class RideSafetyFeaturesAggregator(object):
+    """
+    A class generating various statistical features and then aggregates them by their respective bookingIDs.
+    Various helper functions are provided, using `get_aggregated_features` is enough
+
+    Parameters
+    ----------
+    input_df: pandas.DataFrame()
+        A DataFrame containing features from Grab's ride safety dataset
+    """
     def __init__(self, input_df):
         self.ride_safety_df = input_df
 
     def get_aggregated_features(self):
+        """
+        Get various statistical and aggregation features.
+        TODO: explain the various features
+
+        Returns
+        -------
+        out_df: pandas.DataFrame()
+            An aggregated features DataFrame aggregated by bookingID
+        """
+
         temp = self._aggregate_basic_statistical_features()  # get basic statistical features
 
         other_features = self.ride_safety_df.groupby('bookingID', as_index=True).apply(self._aggregate_special_features)
