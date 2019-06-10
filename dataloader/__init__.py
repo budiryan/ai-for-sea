@@ -1,2 +1,2 @@
-from .dataloader import load_ride_safety_train
-from .dataloader import load_ride_safety_test
+from .dataloader import load_features_and_labels
+from .dataloader import load_features

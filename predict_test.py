@@ -10,7 +10,7 @@ from models.wrappers.xgboost import XGBWrapper
 from models.wrappers.sklearn import SklearnWrapper
 from sklearn.linear_model import Ridge
 from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor
-from dataloader import load_ride_safety_test
+from dataloader import load_features
 from features.features import RideSafetyFeaturesAggregator
 
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
         sys.exit('source is not a directory, existing...')
 
     with timer('Loading test data and aggregating features: '):
-        features = load_ride_safety_test(features_dir)
+        features = load_features(features_dir)
         feature_aggregator = RideSafetyFeaturesAggregator(features)
         feat_aggs = feature_aggregator.get_aggregated_features()
 

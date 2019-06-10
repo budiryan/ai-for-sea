@@ -2,24 +2,46 @@ import glob
 import pandas as pd
 
 
-def load_ride_safety_train(features_dir, labels_dir):
+def load_features_and_labels(features_dir, labels_dir):
+    """ Load both ride safety feature data and their labels
+
+    Parameters
+    ----------
+    features_dir: str
+        Path to a folder containing feature CSVs
+    labels_dir: str
+        Path to a folder containing feature labels
+
+    Returns
+    -------
+    features: pandas DataFrame
+        A pandas DataFrame containing features sorted by (bookingID, second)
+    labels: pandas DataFrame
+        A pandas DataFrame containing labels
+    """
     # load labels
     labels = pd.read_csv(glob.glob('{}/*.csv'.format(labels_dir))[0])
     labels = labels.sort_values(by='bookingID')
 
     # load features
-    features = _load_features(features_dir)
+    features = load_features(features_dir)
 
     return features, labels
 
 
-def load_ride_safety_test(features_dir):
-    # load features
-    features = _load_features(features_dir)
-    return features
+def load_features(features_dir):
+    """ Load only ride safety feature data, without their labels
 
+    Parameters
+    ----------
+    features_dir: str
+        Path to a folder containing feature CSVs
 
-def _load_features(features_dir):
+    Returns
+    -------
+    features: pandas DataFrame
+        A pandas DataFrame containing features sorted by (bookingID, second)
+    """
     features = pd.DataFrame()
     for f in glob.glob('{}/*.csv'.format(features_dir)):
         temp = pd.read_csv(f)
