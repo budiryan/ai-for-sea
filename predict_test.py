@@ -17,7 +17,7 @@ from features.features import RideSafetyFeaturesAggregator
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='A script to predict test data')
     ap.add_argument('-s', '--source', required=True,
-                    help='path to folder containing feature CSVs')
+                    help='path to folder containing feature CSVs. Make sure the folder is STERILE and contains the test CSVs only')
     ap.add_argument("-d", "--destination", required=True,
                     help='path + filename for writing test prediction CSV. e.g.: "predictions.csv" ')
     args = vars(ap.parse_args())
