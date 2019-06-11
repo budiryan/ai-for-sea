@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import itertools
 
 
 class RideSafetyFeaturesAggregator(object):
@@ -57,6 +58,9 @@ class RideSafetyFeaturesAggregator(object):
         n_stops, hit_mean, hit_max, hit_std = self._get_stopping_statistics(inp)
         naive_dist = self._get_naive_distance(inp)
         stopping_time_ratio = self._get_relative_stopping_time(inp)
+        num_acceleration_change_x = len(list(itertools.groupby(inp['acceleration_x'], lambda x: x > 0))) / inp['second'].max()
+        num_acceleration_change_y = len(list(itertools.groupby(inp['acceleration_y'], lambda x: x > 0))) / inp['second'].max()
+        num_acceleration_change_z = len(list(itertools.groupby(inp['acceleration_z'], lambda x: x > 0))) / inp['second'].max()
 
         d = {
             'n_stops': n_stops,
@@ -65,8 +69,13 @@ class RideSafetyFeaturesAggregator(object):
             'hit_std': hit_std,
             'naive_distance': naive_dist,
             'stopping_time_ratio': stopping_time_ratio,
+            'num_acceleration_change_x': num_acceleration_change_x,
+            'num_acceleration_change_y': num_acceleration_change_y,
+            'num_acceleration_change_z': num_acceleration_change_z,
         }
-        return pd.Series(d, index=['n_stops', 'hit_mean', 'hit_max', 'hit_std', 'naive_distance', 'stopping_time_ratio'])
+        return pd.Series(d, index=['n_stops', 'hit_mean', 'hit_max', 'hit_std',
+                                   'naive_distance', 'stopping_time_ratio', 'num_acceleration_change_x',
+                                   'num_acceleration_change_y', 'num_acceleration_change_z'])
 
     @staticmethod
     def _get_naive_distance(inp):
