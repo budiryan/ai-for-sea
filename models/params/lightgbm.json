@@ -5,7 +5,7 @@
     "metric": "rmse",
     "nrounds": 50000,
     "early_stop_rounds": 2000,
-    "max_depth": 4,
+    "max_depth": 2,
     "num_leaves": 46,
     "feature_fraction": 0.6,
     "bagging_fraction": 0.9,

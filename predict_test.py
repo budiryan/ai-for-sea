@@ -89,7 +89,8 @@ if __name__ == '__main__':
 
         et_preds = np.average(preds, axis=0).reshape(-1, 1)
 
-    ensemble_predictions = np.concatenate((lgb_preds, xgb_preds, rf_preds, et_preds), axis=1)  # note: must retain pred orders
+    ensemble_predictions = np.concatenate((et_preds, rf_preds, lgb_preds, xgb_preds), axis=1)  # note: must retain pred orders
+
     with timer('Predicting final prediction using ridge regression model'):
         params = json_to_dict('models/params/ridge.json')
         model_files = glob.glob('{}/*.pkl'.format('models/saved_models/ridge'))
