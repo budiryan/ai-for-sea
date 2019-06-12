@@ -19,7 +19,6 @@ class RideSafetyFeaturesAggregator(object):
     def get_aggregated_features(self):
         """
         Get various statistical and aggregation features.
-        TODO: explain the various features
 
         Returns
         -------
