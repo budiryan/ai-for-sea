@@ -1,5 +1,5 @@
-# AI For SEA: Ride Safety Track
-My solution for Grab's AI for SEA challenge: Ride Safety Track
+# AI For SEA: Ride Safety
+My solution to Grab's AI for SEA challenge: "Ride Safety" track
 
 ## Requirements
 1. Python 3 (version >= 3.6 recommended)
@@ -15,11 +15,15 @@ My solution for Grab's AI for SEA challenge: Ride Safety Track
     * Mac / Linux: `source env/bin/activate`
     * Windows: `env\Scripts\activate.bat`
 6. Install dependencies: `pip install -r requirements.txt`
+7. Note: This project uses LightGBM as one of the models. For Mac users, starting from version 2.2.1, the library file in distribution wheels for macOS is built by the Apple Clang (Xcode_8.3.3) compiler.
+Therefore, before installing dependencies, you must `brew install libomp` first.
 
 ## Predicting Your Hold-Out Test Set
 1. Place the folder containing the test CSV files inside the root project directory. 
    Please make sure the folder is STERILE and contains the test CSV files only.
-2. `python predict_test.py --source [PATH_TO_TEST_FOLDER] --destination [PATH_TO_PREDICTION_CSV_FILE, e.g.: predictions.csv]`
+2. `python predict_test.py --source/-s [PATH_TO_TEST_FOLDER] --destination/-d [PATH_TO_PREDICTION_CSV_FILE, e.g.: predictions.csv]`
+    
+    Example: `python predict_test.py -s test_folder/ -d predictions.csv`
 
 ## Project Presentation
 ### Feature Engineering

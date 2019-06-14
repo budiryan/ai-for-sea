@@ -28,9 +28,11 @@ if __name__ == '__main__':
     if not os.path.isdir(features_dir):
         sys.exit('source is not a directory, existing...')
 
-    with timer('Loading test data and aggregating features: '):
+    with timer('Loading test data + generating features: '):
         features = load_features(features_dir)
         feature_aggregator = RideSafetyFeaturesAggregator(features)
+
+        print('Generating features, it is going to take a while...')
         feat_aggs = feature_aggregator.get_aggregated_features()
 
     feature_columns = [c for c in feat_aggs.columns.values if c not in ['bookingID', 'label']]
