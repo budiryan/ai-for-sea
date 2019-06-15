@@ -24,6 +24,7 @@ Therefore, before installing dependencies, you must `brew install libomp` first.
 2. `python predict_test.py --source/-s [PATH_TO_TEST_FOLDER] --destination/-d [PATH_TO_PREDICTION_CSV_FILE, e.g.: predictions.csv]`
     
     Example: `python predict_test.py -s test_folder/ -d predictions.csv`
+3. Once successful, prediction file will be generated at the path you specified.
 
 ## Project Presentation
 ### Feature Engineering
