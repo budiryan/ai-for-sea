@@ -91,6 +91,7 @@ if __name__ == '__main__':
 
         et_preds = np.average(preds, axis=0).reshape(-1, 1)
 
+    # ensembling order: et --> rf --> lgb --> xgb
     ensemble_predictions = np.concatenate((et_preds, rf_preds, lgb_preds, xgb_preds), axis=1)  # note: must retain pred orders
 
     with timer('Predicting final prediction using ridge regression model'):
