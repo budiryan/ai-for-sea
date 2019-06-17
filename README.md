@@ -59,3 +59,8 @@ Each model is trained on a 5-Fold Stratified Cross Validation.
 Finally, Ridge Regression is used to train the meta-features and generate the final predictions.
 
 credits: part of the diagram was taken from <a href="https://www.kaggle.com/getting-started/18153#post103381">here</a>
+
+### Model Training
+If you want to see how the analysis + the model training are done. Please head to [analysis.ipynb](./analysis.ipynb).
+Please note that if you want to retrain the model, you just need to make sure the input path to the `features` and `labels` folders
+are correct. After the training was done, re-run `predict_test.py` to get your prediction CSV.
