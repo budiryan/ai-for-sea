@@ -20,12 +20,13 @@ My solution to Grab's AI for SEA challenge: "Ride Safety" track
 Therefore, before installing dependencies, you must `brew install libomp` first.
 
 ## Predicting Your Hold-Out Test Set
-1. Place the folder containing the test CSV files inside the root project directory. 
+1. The models have already been pre-trained so you do not need to place any train data, only test feature data is needed
+2. Place the folder containing the test CSV files inside the root project directory. 
    Please make sure the folder is STERILE and contains the test CSV files only.
-2. `python predict_test.py --source/-s [PATH_TO_TEST_FOLDER] --destination/-d [PATH_TO_PREDICTION_CSV_FILE, e.g.: predictions.csv]`
+3. `python predict_test.py --source/-s [PATH_TO_TEST_FOLDER] --destination/-d [PATH_TO_PREDICTION_CSV_FILE, e.g.: predictions.csv]`
     
     Example: `python predict_test.py -s test_folder/ -d predictions.csv`
-3. Once successful, prediction file will be generated at the path you specified.
+4. Once successful, prediction file will be generated at the path you specified.
 
 ## Project Presentation
 ### Feature Engineering
