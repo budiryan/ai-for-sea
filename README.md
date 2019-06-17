@@ -10,7 +10,8 @@ My solution to Grab's AI for SEA challenge: "Ride Safety" track
 1. Install Python 3 on your system
 2. Install `pip`
 3. Install `virtualenv`: `pip install virtualenv`
-4. Generate virtual environment directory: `virtualenv env`
+4. Generate virtual environment directory: `virtualenv env`. Please note that your `virtualenv` SHOULD generate a `python 3` environment.
+   If `python 2` is generated instead, execute `virtualenv -p python3 env` instead.
 5. Activate virtual environment:
     * Mac / Linux: `source env/bin/activate`
     * Windows: `env\Scripts\activate.bat`
