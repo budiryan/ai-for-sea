@@ -26,7 +26,7 @@ kiwisolver==1.1.0
 lightgbm==2.2.3
 MarkupSafe==1.1.1
 matplotlib
-mistune==0.8.4
+mistune==2.0.3
 nbconvert==5.5.0
 nbformat==4.4.0
 notebook==5.7.8
